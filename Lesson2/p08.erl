@@ -8,6 +8,8 @@
 %% 1> p08:compress([a,a,a,a,b,c,c,a,a,d,e,e,e,e]). %%
 %% [a,b,c,a,d,e]                                   %%
 
+%% Reverse func from task p05.erl                  %%
+%% Without reverse output will be in reverse order %%
 reverse(L) ->
     reverse(L,[]).
 reverse([],Tail) ->
@@ -15,7 +17,7 @@ reverse([],Tail) ->
 reverse([H|T], Tail) ->
     reverse(T,[H|Tail]).
 
-
+%% Reverse func from task p05.erl %%
 
 compress(List) ->
     compress(List,[]). %% Interface %%
