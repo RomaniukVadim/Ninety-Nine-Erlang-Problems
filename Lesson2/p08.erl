@@ -1,6 +1,6 @@
 -module(p08).
 
--export([compress/1]).
+-export([compress/1,compress_erlrus/1]).
 
 %% (**) Eliminate consecutive duplicates of list elements. %%
 %% If a list contains repeated elements they should be replaced with a single copy of the element. The order of the elements should not be changed. %%
@@ -28,3 +28,8 @@ compress([H|T],ListWithoutDub) ->
 
 compress([],ListWithoutDub) ->
     reverse(ListWithoutDub). %% When list is empty. Return LastWithoutDublicate. %%
+
+%% without tail recursion
+compress_erlrus([]) -> [];
+compress_erlrus([A| [A | _] = Rest]) -> compress_erlrus(Rest);
+compress_erlrus([A | Rest]) ->[A | compress_erlrus(Rest)].
