@@ -67,17 +67,19 @@ split_erlrus(Bin, Delim, N, [AccCurrent | AccRest] = Acc) ->
 
 
 
-%%     Test for split() function    %%
+%%     Test for split() function         %%
 split_test() ->
     ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>, "-:-")),
     ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1-Col2-Col3-Col4-Col5">>, "-")),
     ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>, "-:-")),
     ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1Test TestCol2Test TestCol3Test TestCol4Test TestCol5">>, "Test Test")),
     ?assertEqual([<<>>] ,split(<<>>, "-:-")),
-    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split_erlrus(<<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>, "-:-")),
-    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split_erlrus(<<"Col1-Col2-Col3-Col4-Col5">>, "-")),
-    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split_erlrus(<<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>, "-:-")),
-    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split_erlrus(<<"Col1Test TestCol2Test TestCol3Test TestCol4Test TestCol5">>, "Test Test")),
-     ?assertEqual([<<>>] ,split_erlrus(<<>>, "-:-")),
+%%    Test for split() function           %%
+%%
+%%    Test for split_erlrus() function    %%
+    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split_erlrus(<<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>, <<"-:-">>)),
+    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split_erlrus(<<"Col1-Col2-Col3-Col4-Col5">>, <<"-">>)),
+    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split_erlrus(<<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>, <<"-:-">>)),
+    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split_erlrus(<<"Col1Test TestCol2Test TestCol3Test TestCol4Test TestCol5">>, <<"Test Test">>)),
     ok.
-%%     Test for split() function    %%
+%%     Test for split_erlrus() function    %%
