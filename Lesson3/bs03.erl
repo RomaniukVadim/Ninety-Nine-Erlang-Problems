@@ -53,5 +53,8 @@ split(Bin,Delimiter,Acc,List) ->
 %%     Test for split() function    %%
 split_test() ->
     ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>, "-:-")),
+    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1-Col2-Col3-Col4-Col5">>, "-")),
+    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>, "-:-")),
+     ?assertEqual([<<>>] ,split(<<>>, "-:-")),
     ok.
 %%     Test for split() function    %%
