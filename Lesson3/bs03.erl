@@ -12,10 +12,12 @@
 %% [<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] %%
 %%
 
+%% Delete spaces before first word.                  %%
+%%
 del_space(<<$\s, Rest/binary>>) ->
     del_space(Rest);
 del_space(Rest) -> Rest.
-
+%%
 %% Interface %%
 split(Bin,Delimiter) ->
     split(del_space(Bin),list_to_binary(Delimiter),<<>>,[]).
@@ -55,6 +57,7 @@ split_test() ->
     ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>, "-:-")),
     ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1-Col2-Col3-Col4-Col5">>, "-")),
     ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>, "-:-")),
+    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1Test TestCol2Test TestCol3Test TestCol4Test TestCol5">>, "Test Test")),
      ?assertEqual([<<>>] ,split(<<>>, "-:-")),
     ok.
 %%     Test for split() function    %%
