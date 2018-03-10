@@ -25,26 +25,29 @@ split(Bin,Delimiter) ->
 %%
 split(<<>>,_,Acc,List) ->
     List++[<<Acc/binary>>];
-%%
-%% When we meet space ($\s), send rest binary to     %%
-%% function, nullify Accumulator, Append Acc         %%
-%% (Word before space) to list.                      %%
-%%
 
 split(Bin,Delimiter,Acc,List) ->
     DelSize = (byte_size(Delimiter)),
     case Bin of
+%%
+%% When we meet delimiter, send rest binary to     %%
+%% function, nullify Accumulator, Append Acc         %%
+%% (Word before space) to list.                      %%
+%%
+
 	<<Delimiter:DelSize/binary, Rest/binary>> ->
 	    split(Rest,Delimiter,<<>>,List++[<<Acc/binary>>]);
-	<<X, Rest/binary>> ->
-	    split(Rest,Delimiter,<<Acc/binary, X>>,List);	
-	_ ->
-	    split(Bin,Delimiter,Acc,List)
-	end.
 %%
 %% Grab split here, create word (<<Acc>>) from symbols %%
 %% that precede before delimiter.                      %%
 %%
+
+	<<X, Rest/binary>> ->
+	    split(Rest,Delimiter,<<Acc/binary, X>>,List);	
+%% Other
+	_ ->
+	    split(Bin,Delimiter,Acc,List)
+	end.
 
 
 %%     Test for split() function    %%
