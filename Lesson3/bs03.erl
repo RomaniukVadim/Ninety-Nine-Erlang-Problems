@@ -1,6 +1,6 @@
 -module(bs03).
 
--export([split/2]).
+-export([split/2,split_erlrus/2]).
 -include_lib("eunit/include/eunit.hrl").
 
 %%
@@ -52,12 +52,32 @@ split(Bin,Delimiter,Acc,List) ->
 	end.
 
 
+split_erlrus(Bin, Delim) when Delim =/= <<>> ->
+    split_erlrus(Bin, Delim, byte_size(Delim), [<<>>]).
+
+split_erlrus(Bin, Delim, N, [AccCurrent | AccRest] = Acc) ->
+    case Bin of
+        <<Delim:N/binary, Rest/binary>> ->
+	    split_erlrus(Rest, Delim, N, [<<>> | Acc]);
+        <<C:1/binary, Rest/binary>> ->
+	    split_erlrus(Rest, Delim, N, [<<AccCurrent/binary, C/binary>>| AccRest]);
+        _ -> lists:reverse(Acc)
+    end.
+
+
+
+
 %%     Test for split() function    %%
 split_test() ->
     ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>, "-:-")),
     ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1-Col2-Col3-Col4-Col5">>, "-")),
     ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>, "-:-")),
     ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split(<<"Col1Test TestCol2Test TestCol3Test TestCol4Test TestCol5">>, "Test Test")),
-     ?assertEqual([<<>>] ,split(<<>>, "-:-")),
+    ?assertEqual([<<>>] ,split(<<>>, "-:-")),
+    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split_erlrus(<<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>, "-:-")),
+    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split_erlrus(<<"Col1-Col2-Col3-Col4-Col5">>, "-")),
+    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split_erlrus(<<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>, "-:-")),
+    ?assertEqual([<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>] ,split_erlrus(<<"Col1Test TestCol2Test TestCol3Test TestCol4Test TestCol5">>, "Test Test")),
+     ?assertEqual([<<>>] ,split_erlrus(<<>>, "-:-")),
     ok.
 %%     Test for split() function    %%
