@@ -36,8 +36,8 @@ words(<<$\s, Rest/binary>>, Acc,List) ->
 %% Grab words here, create word (<<Acc>>) from symbols %%
 %% that precede before delimiter.                      %%
 %%
-words(<<X, Bin/binary>>,Acc,List) ->
-    words(Bin, <<Acc/binary, X>>,List).
+words(<<X, Rest/binary>>,Acc,List) ->
+    words(Rest, <<Acc/binary, X>>,List).
     
 %%     Test for words() function    %%
 words_test() ->

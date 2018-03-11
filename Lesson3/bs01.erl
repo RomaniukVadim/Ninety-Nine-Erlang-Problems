@@ -28,9 +28,11 @@ del_space(Rest) -> Rest.
 first_word(Bin) ->
     first_word(del_space(Bin), <<>>).
 
-first_word(<<>>, Acc) -> Acc;
+first_word(<<>>, Acc) ->
+    Acc;
 %% return Accumulator if binary is empty.
-first_word(<<$\s, _/binary>>, Acc) -> Acc;
+first_word(<<$\s, _/binary>>, Acc) ->
+    Acc;
 %% return Accumulator if binary is space.
 first_word(<<X, Bin/binary>>, Acc) ->
     first_word(Bin, <<Acc/binary, X>>).
