@@ -16,3 +16,11 @@
 %% 1> p13:decode([{4,a},{1,b},{2,c},{2,a},{1,d},{4,e}]). %%
 %% [a,a,a,a,b,c,c,a,a,d,e,e,e,e]                         %%
 %%
+
+
+%%   Test for decode() function     %%
+decode_test() ->
+    ?assertEqual([{4,a},b,{2,c},{2,a},d,{4,e}], decode([a,a,a,a,b,c,c,a,a,d,e,e,e,e])),
+    ?assertEqual([], decode([])),
+    ok.
+%%   Test for decode() function     %%
