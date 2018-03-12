@@ -23,6 +23,9 @@ decode([])->
 %% equal two. Return list of two elements.               %%
 decode([{2,X}|[]])->
     [X,X];
+%% When only one element in tuple
+decode([{1,X}|[]])->
+    [X];
 %% When first element is tuple of two element and count  %%
 %% unknown.                                              %%
 decode([{Count,X}|[]])->
@@ -32,6 +35,9 @@ decode([{Count,X}|[]])->
 %% our element and Tail is list of element and recurse.  %%
 decode([{2,X}|T])->
     [X|[X|decode(T)]];
+%% When only one element in tuple
+decode([{1,X}|T])->
+    [X|decode(T)];
 %%
 decode([{Count,X}|T])->
     [X|decode([{Count-1,X}|T])];
@@ -47,7 +53,7 @@ decode([H|[]])->
 
 %%   Test for decode() function     %%
 decode_test() ->
-    ?assertEqual([{4,a},b,{2,c},{2,a},d,{4,e}], decode([a,a,a,a,b,c,c,a,a,d,e,e,e,e])),
+    ?assertEqual([a,a,a,a,b,c,c,a,a,d,e,e,e,e], decode([{4,a},{1,b},{2,c},{2,a},{1,d},{4,e}])),
     ?assertEqual([], decode([])),
     ok.
 %%   Test for decode() function     %%
