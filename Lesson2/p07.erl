@@ -37,7 +37,7 @@ flatten([],FlattenList) ->
 %%   Test for flatten() function     %%
 flatten_test() ->
     ?assertEqual([a,b,c,d,e], flatten([a,[],[b,[c,d],e]])),
-    ?assertEqual([a,b,c,d,e], flatten([a,[],[b,[c,[e,[[[b]]]],d],e]])),
+    ?assertEqual([a,b,c,e,b,d,e], flatten([a,[],[b,[c,[e,[[[b]]]],d],e]])),
     ?assertEqual([a,b,c,d,e], flatten([a,b,c,d,e])),
     ?assertEqual([], flatten([])),
     ok.
