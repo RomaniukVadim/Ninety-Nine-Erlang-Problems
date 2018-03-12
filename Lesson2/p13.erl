@@ -16,6 +16,33 @@
 %% 1> p13:decode([{4,a},{1,b},{2,c},{2,a},{1,d},{4,e}]). %%
 %% [a,a,a,a,b,c,c,a,a,d,e,e,e,e]                         %%
 %%
+%% When list is empty, return empty list.                %%
+decode([])->
+    [];
+%% When first element is tuple of two element and count  %%
+%% equal two. Return list of two elements.               %%
+decode([{2,X}|[]])->
+    [X,X];
+%% When first element is tuple of two element and count  %%
+%% unknown.                                              %%
+decode([{Count,X}|[]])->
+    [X|decode([{Count-1,X}])];
+%% When first element is tuple of two element, count     %%
+%% equal two,but with tail. Return list, where head is   %%
+%% our element and Tail is list of element and recurse.  %%
+decode([{2,X}|T])->
+    [X|[X|decode(T)]];
+%%
+decode([{Count,X}|T])->
+    [X|decode([{Count-1,X}|T])];
+%%
+decode([H|[{Count,X}|T]])->
+    [H|decode([{Count,X}|T])];
+%% When we have only one element in head, and tail is
+%% empty list.
+decode([H|[]])->
+    [H].
+
 
 
 %%   Test for decode() function     %%
