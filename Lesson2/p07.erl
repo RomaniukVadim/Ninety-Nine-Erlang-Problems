@@ -45,12 +45,13 @@ flatten([],FlattenList) ->
 
 flatten_teacher(List) ->
     reverse(flatten_teacher(List,[])).
+
 flatten_teacher([[]|T],Acc) ->
     flatten_teacher(T,Acc);
 flatten_teacher([[_|_]=H|T],Acc) ->
     flatten_teacher(T,flatten_teacher(H,Acc));
 flatten_teacher([H|T],Acc) ->
-    flatten_teacher(T,[H,Acc]);
+    flatten_teacher(T,[H|Acc]);
 flatten_teacher([],Acc) ->
     Acc.
 
