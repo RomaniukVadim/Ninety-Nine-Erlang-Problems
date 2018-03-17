@@ -17,8 +17,8 @@ len([]) ->
     0.
 
 %% Another solution of this task %%
-len_tail([H|T]) ->
-    len_tail([H|T],0).
+len_tail(L) ->
+    len_tail(L,0).
 len_tail([_H|T],Num) ->
     len_tail(T, Num+1);
 len_tail([],Num) ->
@@ -28,9 +28,16 @@ len_tail([],Num) ->
 
 
 
-%%     Test for element_at() function       %%
-len_tail_test() ->
+%%     Test for len() function       %%
+len_test() ->
     ?assertEqual(0, len([])),
     ?assertEqual(4, len([a,b,c,d])),
     ok.
-%%     Test for element_at() function       %%
+%%     Test for len() function       %%
+
+%%     Test for len_tail() function       %%
+len_tail_test() ->
+    ?assertEqual(0, len_tail([])),
+    ?assertEqual(4, len_tail([a,b,c,d])),
+    ok.
+%%     Test for len_tail() function       %%
