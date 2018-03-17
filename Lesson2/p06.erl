@@ -26,10 +26,8 @@ reverse([H|T], Tail) ->
 %% https://github.com/inaka/erlang_guidelines#dont-import %%
 
 
-is_polindrome(_List = []) ->
-    true;
-is_polindrome([H|T]) ->
-    [H|T] == reverse([H|T]).
+is_polindrome(L) ->
+    L == reverse(L).
 
 
 %%     Test for element_at() function       %%
