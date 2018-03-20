@@ -67,6 +67,7 @@ Example:
     [a,b,c,a,d,e]
 
 **P09 (\*\*) Pack consecutive duplicates of list elements into sublists.**
+
 If a list contains repeated elements they should be placed in separate sublists.  
 Example:
 
@@ -121,3 +122,45 @@ Example:
 
     1> p15:replicate([a,b,c], 3).
     [a,a,a,b,b,b,c,c,c]
+
+Binary (Lesson 3)
+-------------
+
+**bs01: Extract first word from text **
+
+Example:
+
+    1> BinText = <<"Some text">>.
+    <<"Some Text">>
+    2> bs01:first_word(BinText).
+    <<"Some">>
+
+**bs02: Split a string into words:**
+
+Example:
+
+    1> BinText = <<"Text with four words">>.
+    <<"Text with four words">>
+    2> bs02:words(BinText).
+    [<<"Text">>, <<"with">>, <<"four">>, <<"words">>]
+
+**bs03:Divide the line into parts, with an explicit delimiter**
+
+Example:
+
+    1> BinText = <<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>.
+    <<"Col1-:-Col2-:-Col3-:-Col4-:-Col5">>
+    2> bs03:split(BinText, "-:-").
+    [<<"Col1">>, <<"Col2">>, <<"Col3">>, <<"Col4">>, <<"Col5">>]
+    
+**bs04:Disassemble an XML document without attributes**
+
+Example:
+
+    1> BinXML = <<"<start><item>Text1</item><item>Text2</item></start>">>.
+    <<”<start><item>Text1</item><item>Text2</item></start>”>>
+    2> bs04:decode_xml(BinXML).
+    {<<"start">>, [], [
+    {<<"item">>, [], [<<"Text1">>]},
+    {<<"item">>, [], [<<"Text2">>]}
+    ]}
