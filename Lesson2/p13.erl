@@ -1,5 +1,5 @@
 -module(p13).
-
+-author('Romaniuk Vadim <romaniuk.cv@gmail.com>').
 -export([decode/1]).
 -include_lib("eunit/include/eunit.hrl").
 

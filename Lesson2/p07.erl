@@ -1,5 +1,5 @@
 -module(p07).
-
+-author('Romaniuk Vadim <romaniuk.cv@gmail.com>').
 -export([flatten/1,flatten_teacher/1]).
 -include_lib("eunit/include/eunit.hrl").
 

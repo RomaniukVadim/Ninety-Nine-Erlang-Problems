@@ -1,5 +1,5 @@
 -module(p08).
-
+-author('Romaniuk Vadim <romaniuk.cv@gmail.com>').
 -export([compress/1,compress_erlrus/1]).
 -include_lib("eunit/include/eunit.hrl").
 

@@ -1,5 +1,5 @@
 -module(bs01).
-
+-author('Romaniuk Vadim <romaniuk.cv@gmail.com>').
 -export([first_word/1]).
 -include_lib("eunit/include/eunit.hrl").
 

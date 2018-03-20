@@ -1,5 +1,5 @@
 -module(p06).
-
+-author('Romaniuk Vadim <romaniuk.cv@gmail.com>').
 -export([is_polindrome/1]).
 -include_lib("eunit/include/eunit.hrl").
 
