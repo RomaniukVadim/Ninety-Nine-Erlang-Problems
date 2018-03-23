@@ -16,6 +16,13 @@ del_space(<<$\s, Rest/binary>>) ->
     del_space(Rest);
 del_space(Rest) -> Rest.
 
+reverse( List ) ->
+	reverse( List, [] ).
+reverse( [], List ) ->	
+	List;
+reverse( [H|T], List ) ->
+    reverse(T, [H|List] ).
+
 %% Interface %%
 words(Bin) ->
     words(del_space(Bin),<<>>,[]).
@@ -24,14 +31,14 @@ words(Bin) ->
 %% in List all other words.                          %%
 %%
 words(<<>>,Acc, List) ->
-    List++[<<Acc/binary>>];
+    reverse([Acc|List]);
 %%
 %% When we meet space ($\s), send rest binary to     %%
 %% function, nullify Accumulator, Append Acc         %%
 %% (Word before space) to list.                      %%
 %%
 words(<<$\s, Rest/binary>>, Acc,List) ->
-    words(Rest, <<>> ,List++[<<Acc/binary>>]);
+    words(Rest, <<>> ,[Acc|List]);
 %%
 %% Grab words here, create word (<<Acc>>) from symbols %%
 %% that precede before delimiter.                      %%
