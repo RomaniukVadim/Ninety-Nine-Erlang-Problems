@@ -1,0 +1,12 @@
+{application, rebar_test,
+ [
+  {description, "Just test of rebar"},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { rebar_test_app, []}},
+  {env, []}
+ ]}.
