@@ -30,5 +30,7 @@ get_field(age, Record) ->
 set_field(name,Name,Record) ->
     Record#person{name=Name};
 set_field(age,Age,Record) ->
-    Record#person{age=Age}.
+    Record#person{age=Age};
+set_field(gender,Gender,Record) ->
+    Record#person{gender=Gender}.
 
