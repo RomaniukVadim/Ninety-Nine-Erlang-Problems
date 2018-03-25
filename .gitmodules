@@ -1,0 +1,3 @@
+[submodule "erlang_projects"]
+	path = erlang_projects
+	url = git://github.com/RomaniukVadim/erlang_projects.git
