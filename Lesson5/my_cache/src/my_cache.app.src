@@ -1,0 +1,15 @@
+{application, my_cache,
+ [{description, "Custom cache library"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, ["Vadim Romaiuk"]},
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.
