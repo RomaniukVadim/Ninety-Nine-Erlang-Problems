@@ -166,6 +166,36 @@ Example:
     ]}
     
     
+### Data types (Lesson4)
+    
+**record_test: just example record module.**
+
+```
+1> record_test:new().
+{person,"Joe",undefined,56} 
+2> record_test:get_index(name).
+2
+3> record_test:get_field(name,{person,"Joe",undefined,56}).
+"Joe"
+4> record_test:set_field(name,"Jenny",{person,"Joe",undefined,56}).
+{person,"Jenny",undefined,56}
+```
+
+**my_cache: Custor cache lib on top of ETS tables**
+
+```
+1> my_cache:create().
+ok
+2> my_cache:insert(some_key,some_value,25).
+ok
+3> my_cache:lookup(some_key).
+{ok,[some_key,some_value,63689425475]}
+4> my_cache:lookup(some_key). %% TTL expired
+{error,undefined} 
+5> my_cache:delete_obsolete().
+ok
+```
+    
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
