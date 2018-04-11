@@ -1,0 +1,15 @@
+{application, cache_server, [
+	{description, ""},
+	{vsn, "0.1.0"},
+	{id, "git"},
+	{modules, []},
+	{registered, [cache_server_sup]},
+	{applications, [
+		kernel,
+		stdlib,
+		cowboy,
+		jsx
+	]},
+	{mod, {cache_server_app, []}},
+	{env, []}
+]}.

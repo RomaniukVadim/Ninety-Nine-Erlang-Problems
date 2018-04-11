@@ -1,0 +1,10 @@
+{release,{"cache_server_release","1"},
+         {erts,"9.3"},
+         [{kernel,"5.4.3"},
+          {stdlib,"3.4.4"},
+          {ranch,"1.2.1"},
+          {crypto,"4.2.1"},
+          {jsx,"2.8.2"},
+          {cowlib,"1.0.2"},
+          {cowboy,"1.0.4"},
+          {cache_server,"0.1.0"}]}. 
