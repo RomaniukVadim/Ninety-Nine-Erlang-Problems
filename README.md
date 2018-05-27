@@ -237,7 +237,7 @@ Example:
     ... ]
 
 
-Note that we do not want permutations of the group members; i.e. ((ALDO BEAT) ...) is the same solution as ((BEAT ALDO) ...). However, we make a difference between ((ALDO BEAT) (CARLA DAVID) ...) and ((CARLA DAVID) (ALDO BEAT) ...).
+Note that we do not want permutations of the group members; i.e. [[aldo, beat] ...] is the same solution as [[beat, aldo] ...]. However, we make a difference between [[aldo, beat] [carla, david] ...] and [[carla, david], [aldo, beat] ...].
 
 You may find more about this combinatorial problem in a good book on discrete mathematics under the term "multinomial coefficients".
 
@@ -250,7 +250,10 @@ Example:
     1> p28:lsort([a b c], [d ,e], [f,g,h], [d,e],[i,j,k,l], [m,n], [o]).
     [[o], [d,e], [d,e], [m,n], [a,b,c], [f,g,h], [i,j,k,l]]
 
-b) Again, we suppose that a list contains elements that are lists themselves. But this time the objective is to sort the elements of this list according to their length frequency; i.e., in the default, where sorting is done ascendingly, lists with rare lengths are placed first, others with a more frequent length come later.
+b) Again, we suppose that a list contains elements that are lists themselves.
+But this time the objective is to sort the elements of this list according to their length frequency; i.e., in the default, where sorting is done ascendingly, lists with rare lengths are placed first, others with a more frequent length come later.
+
+Example:
 
    1> p28:lfsort([a b c], [d,e], [f,g,h], [d,e] [i,j,k,l], [m,n], [o]).
    [[i,j,k,l], [o], [a,b,c], [f,g,h], [d,e], [d,e], [m,n]]
@@ -266,7 +269,7 @@ Example:
 	1> p31:is-prime(7).
 	T
 
-**P32 (\*\*) Determine the greatest common divisor of two positive integer numbers.
+**P32 (\*\*) Determine the greatest common divisor of two positive integer numbers.**
 
 Use Euclid's algorithm.
 
@@ -275,7 +278,7 @@ Example:
 	1> p32:gcd(36,63).
 	9
 	
-**P33 (\*) Determine whether two positive integer numbers are coprime.
+**P33 (\*) Determine whether two positive integer numbers are coprime.**
 
 Two numbers are coprime if their greatest common divisor equals 1.
 
@@ -284,7 +287,7 @@ Example:
 	1> p33:coprime(35 64)
 	T
 
-**P34 (\*\*) Calculate Euler's totient function phi(m).
+**P34 (\*\*) Calculate Euler's totient function phi(m).**
 
 Euler's so-called totient function phi(m) is defined as the number of positive integers r (1 <= r < m) that are coprime to m.
 
@@ -295,7 +298,7 @@ Example: m = 10: r = 1,3,7,9; thus phi(m) = 4. Note the special case: phi(1) = 1
 
 Find out what the value of phi(m) is if m is a prime number. Euler's totient function plays an important role in one of the most widely used public key cryptography methods (RSA). In this exercise you should use the most primitive method to calculate this function (there are smarter ways that we shall discuss later).
 
-**P35 (\*\*) Determine the prime factors of a given positive integer.
+**P35 (\*\*) Determine the prime factors of a given positive integer.**
 
 Construct a flat list containing the prime factors in ascending order.
 
@@ -304,7 +307,7 @@ Example:
 	1> p35:prime-factors(315).
 	[3,3,5,7]
 	
-**P36 (\*\*) Determine the prime factors of a given positive integer (2).
+**P36 (\*\*) Determine the prime factors of a given positive integer (2).**
 
 Construct a list containing the prime factors and their multiplicity.
 
