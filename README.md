@@ -134,7 +134,7 @@ Example:
 
 Example:
 
-    1> p17:split[a,b,c,d,e,f,g,h,i], 3).
+    1> p17:split([a,b,c,d,e,f,g,h,i], 3).
     [[a,b,c], [d,e,f,g,h,i]]
 
 **P18(\*\*) Extract a slice from a list.**
@@ -160,14 +160,14 @@ Example:
 
 Example:
 
-    1> p20:remove-at([a,b,c,d], 2).
+    1> p20:remove_at([a,b,c,d], 2).
     [a,c,d]
 
 **P21(\*) Insert an element at a given position into a list.**
 
 Example:
 
-    1> p21:insert-at([a,b,c,d], alfa, 2).
+    1> p21:insert_at([a,b,c,d], alfa, 2).
     [a,alfa,b,c,d]
 
 **P22(\*) Create a list containing all integers within a given range.**
@@ -185,7 +185,7 @@ The selected items shall be returned in a list.
 
 Example:
 
-    1> p23:rnd-select([a,b,c,d,e,f,g,h], 3).
+    1> p23:rnd_select([a,b,c,d,e,f,g,h], 3).
     [e,d,a]
 
 Hint: Use the built-in random number generator and the result of problem P20.
@@ -196,14 +196,14 @@ The selected numbers shall be returned in a list.
 
 Example:
 
-    1> p24:lotto-select(6,49).
+    1> p24:lotto_select(6,49).
     [23,1,17,33,21,37]
 
 **P25(\*) Generate a random permutation of the elements of a list.**
 
 Example:
 
-    1> p25:rnd-permu([a,b,c,d,e,f]).
+    1> p25:rnd_permu([a,b,c,d,e,f]).
     [b,a,d,c,e,f]
 
 Hint: Use the solution of problem P23.
@@ -266,7 +266,7 @@ Note that in the above example, the first two lists in the result have length 4 
 
 Example:
 
-	1> p31:is-prime(7).
+	1> p31:is_prime(7).
 	T
 
 **P32 (\*\*) Determine the greatest common divisor of two positive integer numbers.**
@@ -293,7 +293,7 @@ Euler's so-called totient function phi(m) is defined as the number of positive i
 
 Example: m = 10: r = 1,3,7,9; thus phi(m) = 4. Note the special case: phi(1) = 1.
 
-	 1> p34:totient-phi(10).
+	 1> p34:totient_phi(10).
 	 4
 
 Find out what the value of phi(m) is if m is a prime number. Euler's totient function plays an important role in one of the most widely used public key cryptography methods (RSA). In this exercise you should use the most primitive method to calculate this function (there are smarter ways that we shall discuss later).
@@ -304,7 +304,7 @@ Construct a flat list containing the prime factors in ascending order.
 
 Example:
 
-	1> p35:prime-factors(315).
+	1> p35:prime_factors(315).
 	[3,3,5,7]
 	
 **P36 (\*\*) Determine the prime factors of a given positive integer (2).**
@@ -313,7 +313,7 @@ Construct a list containing the prime factors and their multiplicity.
 
 Example:
 
-	1> p36:prime-factors-mult(315).
+	1> p36:prime_factors_mult(315).
 	[[3,2], [5,1], [7,1]]
 	
 Hint: The problem is similar to problem P13.
@@ -357,7 +357,7 @@ Given a range of integers by its lower and upper limit, print a list of all even
 
 Example:
 
-	1> p41:goldbach-list(9,20).
+	1> p41:goldbach_list(9,20).
 	10 = 3 + 7
 	12 = 5 + 7
 	14 = 3 + 11
