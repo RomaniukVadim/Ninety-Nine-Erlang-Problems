@@ -247,14 +247,14 @@ a) We suppose that a list contains elements that are lists themselves. The objec
 
 Example:
 
-    1> p28:lsort([a b c], [d ,e], [f,g,h], [d,e],[i,j,k,l], [m,n], [o]).
+    1> p28:lsort([[a b c], [d ,e], [f,g,h], [d,e],[i,j,k,l], [m,n], [o]]).
     [[o], [d,e], [d,e], [m,n], [a,b,c], [f,g,h], [i,j,k,l]]
 
     
 b) Again, we suppose that a list contains elements that are lists themselves.
 But this time the objective is to sort the elements of this list according to their length frequency; i.e., in the default, where sorting is done ascendingly, lists with rare lengths are placed first, others with a more frequent length come later.
 
-    1> p28:lfsort([a b c], [d,e], [f,g,h], [d,e] [i,j,k,l], [m,n], [o]).
+    1> p28:lfsort([[a b c], [d,e], [f,g,h], [d,e] [i,j,k,l], [m,n], [o]]).
     [[i,j,k,l], [o], [a,b,c], [f,g,h], [d,e], [d,e], [m,n]]
 
 
@@ -284,7 +284,7 @@ Two numbers are coprime if their greatest common divisor equals 1.
 
 Example:
 
-	1> p33:coprime(35 64)
+	1> p33:coprime(35,64)
 	T
 
 **P34 (\*\*) Calculate Euler's totient function phi(m).**
