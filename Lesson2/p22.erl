@@ -16,15 +16,6 @@ range(Start,End, Result) ->
 	    range(Start,End-1,[End|Result])
     end.
 	
-%%%
-reverse(L) ->
-    reverse(L,[]).
-reverse([],Tail) ->
-    Tail;
-reverse([H|T], Tail) ->
-    reverse(T,[H|Tail]).
-%%%
-
 %% Test for range() function   %%
 range_test() ->
     ?assertEqual([4,5,6,7,8,9], range(4,9)),
