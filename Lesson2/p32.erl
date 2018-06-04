@@ -1,11 +1,21 @@
 -module(p32).
 -author('Romaniuk Vadim <romaniuk.cv@gmail.com>').
--export([is_prime/1]).
+-export([gcd/2]).
 -include_lib("eunit/include/eunit.hrl").
 
+gcd(First, Second) when First >= Second->
+    case (First rem Second) >= 1 of
+	true ->
+	    gcd(Second, First rem Second);
+	false ->
+	    Second
+    end;
+gcd(First, Second) ->
+    gcd(Second, First).
 
-%% Test for is_prime() function   %%
-is_prime_test() ->
-    ?assertEqual(T, is_prime(7)),
+
+%% Test for gcd() function   %%
+gcd_test() ->
+    ?assertEqual(9, gcd(36,63)),
     ok.
-%% Test for is_prime() function   %%
+%% Test for gcd() function   %%
