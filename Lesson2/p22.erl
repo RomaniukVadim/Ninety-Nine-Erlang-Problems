@@ -3,6 +3,27 @@
 -export([range/2]).
 -include_lib("eunit/include/eunit.hrl").
 
+range(Start,End) when is_integer(Start) =:= true, is_integer(End) =:= true ->
+    range(Start,End,[]).
+
+range(Start,End, Result) ->
+    if
+	Start =:= End ->
+	    [Start|Result];
+	Start > End ->
+	    range(Start,End+1,[End|Result]);
+	Start < End ->
+	    range(Start,End-1,[End|Result])
+    end.
+	
+%%%
+reverse(L) ->
+    reverse(L,[]).
+reverse([],Tail) ->
+    Tail;
+reverse([H|T], Tail) ->
+    reverse(T,[H|Tail]).
+%%%
 
 %% Test for range() function   %%
 range_test() ->
