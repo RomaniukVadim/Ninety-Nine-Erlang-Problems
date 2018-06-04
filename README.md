@@ -179,7 +179,7 @@ Example:
     1> p22:range(4,9).
     [4,5,6,7,8,9]
 
-**P23(\*\*) Replicate the elements of a list a given number of times.**
+**P23(\*\*)  Extract a given number of randomly selected elements from a list.**
 
 The selected items shall be returned in a list.
 
