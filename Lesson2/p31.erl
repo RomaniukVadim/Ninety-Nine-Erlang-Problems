@@ -3,15 +3,21 @@
 -export([is_prime/1]).
 -include_lib("eunit/include/eunit.hrl").
 
-is_prime(0)-> false;
-is_prime(1)-> false;
-is_prime(2)-> true;
-
+is_prime(Number) when Number =< 1 ->
+    false;
 is_prime(Number) ->
-    case (Number rem 2) =:= 0 of
-        true -> false;
-        _ -> true
-    end.    
+    is_prime(Number,2).
+
+is_prime(Number,Count) when Count < Number ->
+    case Number rem Count =:= 0 of
+        true ->
+	    false;
+        false ->
+	    is_prime(Number,Count+1)
+    end;
+is_prime(Number,Count) when Count >= Number -> 
+    true.
+
 
 %% Test for is_prime() function   %%
 is_prime_test() ->
