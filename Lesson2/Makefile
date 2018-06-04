@@ -1,5 +1,5 @@
 test:
-	erlc test.erl p01.erl p02.erl p03.erl p04.erl p05.erl p06.erl p07.erl p08.erl p09.erl p10.erl p11.erl p12.erl p13.erl p14.erl p15.erl p16.erl p17.erl p18.erl p19.erl p20.erl p21.erl p22.erl p23.erl p24.erl p25.erl p26.erl p27.erl p28.erl p31.erl p32.erl p33.erl p34.erl p35.erl p36.erl p37.erl 
+	erlc test.erl p01.erl p02.erl p03.erl p04.erl p05.erl p06.erl p07.erl p08.erl p09.erl p10.erl p11.erl p12.erl p13.erl p14.erl p15.erl p16.erl p17.erl p18.erl p19.erl p20.erl p21.erl p22.erl p23.erl p24.erl p25.erl p26.erl p27.erl p28.erl p31.erl p32.erl p33.erl p34.erl p35.erl p36.erl p37.erl p38.erl p39.erl
 	erl -s test run
 
 test_1:
@@ -145,3 +145,12 @@ test_36:
 test_37:
 	erlc test.erl p37.erl
 	erl -s test run p37 test
+
+test_38:
+	erlc test.erl p38.erl
+	erl -s test run p38 test
+
+test_39:
+	erlc test.erl p39.erl
+	erl -s test run p39 test
+
