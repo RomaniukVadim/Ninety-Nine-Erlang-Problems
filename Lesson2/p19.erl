@@ -3,6 +3,34 @@
 -export([rotate/2]).
 -include_lib("eunit/include/eunit.hrl").
 
+rotate(List, Number) when is_integer(Number) =:= true ->
+    case List of
+	[] -> [];
+	_ ->
+	    case Number of
+		0 ->
+		    List;
+		_ ->
+		    rotate(List, Number ,[])
+	    end
+    end.
+
+rotate([], _, Result) ->    
+    Result;
+
+rotate(List, Number ,Result) ->
+    .
+
+
+
+%%%
+reverse(L) ->
+    reverse(L,[]).
+reverse([],Tail) ->
+    Tail;
+reverse([H|T], Tail) ->
+    reverse(T,[H|Tail]).
+%%%
 
 %% Test for rotate() function   %%
 rotate_test() ->
